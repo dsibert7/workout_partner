@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/addEdit_style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Edit</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>Workout Partner</h2>
+            <h5>{{user.first_name}} Please edit your workout! </h5>
+            <a class="nondrop1" href=/logout>Logout</a>
+            <a class="nondrop2" href="/dashboard">Back</a>
+        </div>
+
+        <div class="body">
+            <h4>{{workout.exercise}} on {{workout.workout_date|date:"SHORT_DATE_FORMAT"}}</h4>
+            <form action="/update/{{workout.id}}" method="post">
+                {% csrf_token %}
+                <label class="addLabel" for="category">Workout Category: </label>
+                <select class="selectCategory" name="category" required>
+                    <option value="arms">Arms</option>
+                    <option value="chest">Chest</option>
+                    <option value="back">Back</option>
+                    <option value="legs">Legs</option>
+                    <option value="cardio">Cardio</option>
+                </select>
+                <label class="addLabel" for="workout_date">Workout Date: </label>
+                <input class="inputDate" type="date" name="workout_date" required>
+                <input class="input" type="text" name="exercise" placeholder="Name of exercise" required>
+                <input class="input" type="text" name="weight" placeholder="Amount of weight"required>
+                <input class="input" type="text" name="reps" placeholder="Number of reps"required>
+                <input class="input" type="text" name="sets" placeholder="Number of sets" required>
+                <input class="input" type="text" name="description" placeholder="Description" required>
+                <input class="delete" type="submit" value="Delete">
+                <input class="button" type="submit" value="Edit Workout">
+            </form>
+            
+        </div>
+
+
+        
+    </div>
+</body>
+</html>

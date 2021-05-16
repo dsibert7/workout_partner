@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard_style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script defer src="{% static 'js/register.js' %}"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>Workout Partner</h2>
+            <h5>Welcome {{user.first_name}}!</h5>
+            <div class="dropdown">
+                <a class="dropbtn" href="/dashboard">View</a>
+                
+                    <div class = "dropdown-content">
+                        {% for category in all_category %}
+                        <a href="/dashboard/{{category.category}}">{{category.category}}</a>
+                            
+                        {% endfor %}
+                    </div> 
+                
+            </div>
+            
+            <a class="nondrop1" href="/newWorkout">Add</a>
+            <a class="nondrop2" href=/logout>Logout</a>
+            
+        </div>
+
+        <div class="body">
+            <!-- <p id="upperBody">{{workout.category}}</p> -->
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Exercise</th>
+                        <th>Weight</th>
+                        <th>Reps</th>
+                        <th>Sets</th>
+                        <th>Description</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if category %}
+                        {% for workout in category.workout.all %}
+                        
+                            
+                    <tr>
+
+                        <td>{{workout.workout_date|date:"SHORT_DATE_FORMAT"}}</td>
+                        <td>{{workout.exercise}}</td>
+                        <td>{{workout.weight}} lbs</td>
+                        <td>{{workout.reps}}</td>
+                        <td>{{workout.sets}}</td>
+                        <td>{{workout.description}}</td>
+                        <td><a href="/edit/{{workout.id}}">Edit</td>
+                    </tr> 
+                        {% endfor %}
+                    {% endif %}
+                    
+                    
+                </tbody>
+            </table>
+            
+        </div>
+
+
+        
+    </div>
+</body>
+</html>

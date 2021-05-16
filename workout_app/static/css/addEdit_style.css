@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html, body{
+    height: 100%;
+    background-color: rgb(119,136,153);
+
+}
+
+#container{
+    margin: 0px auto;
+    width: 75%;
+    height: 100%;
+    background-color: rgb(192,192,192);
+}
+
+h2{
+    padding: 3% 0px 0px 3%;
+}
+
+h5{
+    margin-left: 40%;
+}
+
+.navbar {
+    margin: 2% 0px 13.5% 0px;
+    display: inline-block;
+}
+
+.nondrop1{
+    margin: 0px 0px 5% 44%;
+    padding: .6% 1.5% .59% 1.5%;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: black;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.nondrop2{
+    padding: .6% 1.5% .59% 1.5%;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: black;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.header a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.body{
+    margin: 0px auto;
+    width: 40%;
+    height: 60%;
+    padding: 3%;
+    background-color: white;
+    box-shadow: 3px 5px 3px 5px #888888;
+    border-radius: 5%;
+}
+
+h4{
+    margin-left: 22%;
+    padding-bottom: 1.5%;
+}
+
+.addLabel {
+    margin: 1.5% 0px .5% 30%;
+    display: block;
+}
+
+.selectCategory{
+    margin: 0px 0px 1% 30%;
+    width: 36.2%;
+}
+
+.inputDate{
+    width: 36.2%;
+    margin: 0px 0px 3% 30%;
+    display: block;
+}
+
+.input{
+    margin: 2% 0px 2% 30%;
+    display: block;
+}
+
+.addbutton{
+    margin: 1% 0px 0px 46%
+}
+
+.button{
+    margin: 0px 0px 0px 1%;
+    padding: 0px 1%;
+}
+
+.delete{
+    margin: 0px 0px 0px 30%;
+    padding: 0px 1%;
+}

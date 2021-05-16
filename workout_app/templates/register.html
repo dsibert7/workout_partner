@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register_style.css' %}">
+    <script defer src="{% static 'js/register.js' %}"></script>
+    <title>Register</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Please register!</h1>
+        <!-- set required in form -->
+        <form class="register" name="form" action="/register" method="post">
+            {% csrf_token %}
+            <a class="back" href="/">X</a>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li> {{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <input class="input-register" type="text" name="first_name" placeholder="First Name">
+            <input class="input-register" type="text" name="last_name" placeholder="Last Name">
+            <input class="input-register" type="email" name="email" placeholder="Email">
+            <input class="input-register" type="password" name="password" placeholder="Password">
+            <input class="input-register" type="password" name="confirm_pw" placeholder="Confirm Password">
+            <label class="label-header" for="birthday"><span>Birthday</span></label>
+            <input class="input-date" type="date" name="birthday">
+            <label class="label-header" for="gender">Gender</label>
+            <label class="gender" for="gender">Male<input type="radio" name="gender" value="male" required></label>
+            <label class="gender" for="gender">Female<input type="radio" name="gender" value="female"></label>
+
+            <button class="button">Register</button>
+        </form>
+        
+    </div>
+</body>
+</html>

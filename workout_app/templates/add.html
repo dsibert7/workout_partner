@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/addEdit_style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>Workout Partner</h2>
+            <h5>{{user.first_name}} Please add a workout</h5>
+            
+            <a class="nondrop1" href=/logout>Logout</a>
+            <a class="nondrop2" href="/dashboard">Back</a>
+                
+            
+            
+        </div>
+
+        <div class="body">
+            <form action="/add" method="post">
+                {% csrf_token %}
+                <label class="addLabel" for="category">Workout Category: </label>
+                <select class="selectCategory" name="category">
+                    <option value="Arms">Arms</option>
+                    <option value="Chest">Chest</option>
+                    <option value="Back">Back</option>
+                    <option value="Legs">Legs</option>
+                    <option value="Cardio">Cardio</option>
+                </select>
+                <label class="addLabel" for="workoutDate">Workout Date: </label>
+                <input class="inputDate" type="date" name="workout_date">
+                <input class="input" type="text" name="exercise" placeholder="Name of exercise">
+                <input class="input" type="number" name="weight" placeholder="Amount of weight">
+                <input class="input" type="number" name="reps" placeholder="Number of reps">
+                <input class="input" type="number" name="sets" placeholder="Number of sets">
+                <input class="input" type="text" name="description" placeholder="Description">
+                <input class="addbutton" type="submit" value="Add Workout">
+            </form>
+            
+        </div>
+
+
+        
+    </div>
+</body>
+</html>
